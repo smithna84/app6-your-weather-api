@@ -9,9 +9,9 @@ def home():
 
 @app.route("/api/v1/<station>/<data>")
 def about(station, date):
-    df = pd.read_csv("")
+    df = pd.read_csv("Weather API/TG_STAID" + str(station).zfill(6) + ".txt")
     temperature = df.station(date)
     return render_template("about.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
